@@ -1,0 +1,13 @@
+---
+- name: Install utils
+  apt:
+    name: [
+      'vim',
+      'git',
+      'git-core',
+      'zlib1g',
+      'zlib1g-dev',
+      'libssl-dev',
+      'libsqlite3-dev',
+      'curl'
+    ]

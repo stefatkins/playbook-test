@@ -1,0 +1,24 @@
+---
+- name: Install Ruby dependencies
+  apt:
+    name: [
+      'build-essential',
+      'openssl',
+      # 'libreadline7',
+      'libreadline-dev',
+      'libyaml-dev',
+      'sqlite3',
+      'libxml2-dev',
+      'libxslt-dev',
+      'autoconf',
+      'libc6-dev',
+      'ncurses-dev',
+      'automake',
+      'libtool',
+      'bison',
+      'subversion',
+      'libgdbm-dev',
+      'libffi-dev',
+      'libpcre3',
+      'libpcre3-dev'
+    ]

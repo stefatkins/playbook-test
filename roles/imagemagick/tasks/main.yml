@@ -1,0 +1,7 @@
+---
+- name: Install image magick
+  apt:
+      name: [
+        'imagemagick',
+        'libmagickwand-dev'
+      ]

@@ -1,0 +1,11 @@
+---
+- name: Install postfix
+  apt:
+      name: [
+        'postfix',
+        'libsasl2-2',
+        'sasl2-bin',
+        'libsasl2-modules',
+        'procmail'
+      ]
+     
