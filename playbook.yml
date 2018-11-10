@@ -3,17 +3,19 @@
   hosts: web
   become: yes
   tasks:
-    - name: Update all packages to the latest version
+    - name: Update and upgrade all packages to the latest version
       apt:
         upgrade: dist
+        update_cache: yes
   roles:
     - utils
     - user
     - ruby
     - postgres
     - postfix
-    # - imagemagick
-    # - node
+    - imagemagick
+    - node
+    - rvm
   vars:
     project_path: /home/deploy/var/www/{{ inventory_hostname }}
 

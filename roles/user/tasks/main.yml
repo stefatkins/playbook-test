@@ -1,9 +1,16 @@
 ---
+- name: Ensure group deploy exists
+  group:
+    name: deploy
+    state: present
+
 - name: Add deploy user
   user:
     name: deploy
     home: /home/deploy
     shell: /bin/bash
+    groups: 'deploy,sudo'
+    append: yes
 
 - name: Add ssh key
   authorized_key:
