@@ -1,0 +1,20 @@
+---
+- name: ensure nginx is at the latest version
+  apt: 
+    name: nginx 
+    state: latest
+  notify:
+    - start nginx
+
+- name: Setup nginx conf
+  template:
+    src: templates/nginx.conf
+    dest: /etc/nginx/sites-available/{{ inventory_hostname }}.conf
+
+- name: create symlink
+  file:
+    src: /etc/nginx/sites-available/{{ inventory_hostname }}.conf
+    dest: /etc/nginx/sites-enabled/{{ inventory_hostname }}.conf
+    state: link
+  notify:
+    - restart nginx

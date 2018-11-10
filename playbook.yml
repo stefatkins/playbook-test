@@ -2,6 +2,8 @@
 - name: Install webservers
   hosts: web
   become: yes
+  vars:
+    project_path: /home/deploy/var/www/{{ inventory_hostname }}
   tasks:
     - name: Update and upgrade all packages to the latest version
       apt:
@@ -13,10 +15,13 @@
     - ruby
     - postgres
     - postfix
-    - imagemagick
-    - node
-    - rvm
-  vars:
-    project_path: /home/deploy/var/www/{{ inventory_hostname }}
+    # - imagemagick
+    # - node
+    - { role: rvm.ruby,
+        tags: ruby,
+        rvm1_rubies: ['{{ ruby_version }}'],
+        rvm1_user: 'deploy'
+      }
+    - nginx
 
 

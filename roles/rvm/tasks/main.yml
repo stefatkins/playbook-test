@@ -1,5 +1,0 @@
----
-- name: Install RVM
-  shell: "curl -sSL https://get.rvm.io | bash -s stable --ruby={{ ruby_version }}"
-  become: true
-  become_user: deploy
