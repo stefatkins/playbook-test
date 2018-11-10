@@ -2,9 +2,26 @@
 - name: Add deploy user
   user:
     name: deploy
+    home: /home/deploy
     shell: /bin/bash
 
 - name: Add ssh key
   authorized_key:
     user: deploy
     key: "{{ lookup('file','~/.ssh/id_rsa.pub') }}"
+
+- name: Create project folders
+  file:
+    path: "{{ project_path }}/{{ item }}"
+    mode: 0755
+    recurse: yes
+    state: directory
+  become: yes
+  become_user: deploy
+  with_items:
+    - releases
+    - shared/uploads
+    - shared/log/nginx
+    - shared/assets
+    - shared/sockets
+    - shared/pids

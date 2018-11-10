@@ -6,17 +6,15 @@
     - name: Update all packages to the latest version
       apt:
         upgrade: dist
-  vars:
-    db_name: project_production
-    db_user: postgres
-    db_password: 123456
   roles:
     - utils
     - user
     - ruby
     - postgres
     - postfix
-    - imagemagick
-    - node
+    # - imagemagick
+    # - node
+  vars:
+    project_path: /home/deploy/var/www/{{ inventory_hostname }}
 
 
