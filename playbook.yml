@@ -19,7 +19,8 @@
     - postgres
     - postfix
     - imagemagick
-    - node
+    - nodejs
+    # - yarn
     - { role: rvm.ruby, tags: ruby, rvm1_rubies: ['{{ ruby_version }}'], rvm1_user: 'deploy' }
     - nginx
 

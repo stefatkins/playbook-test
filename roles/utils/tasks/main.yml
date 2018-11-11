@@ -11,3 +11,13 @@
       'libsqlite3-dev',
       'curl'
     ]
+
+- name: Install apt_key dependencies
+  apt:
+    name: [
+      python-urllib3,
+      python-openssl,
+      python-pyasn1,
+      python-pip
+    ]
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'trusty'

@@ -1,0 +1,15 @@
+---
+
+- name: Add apt key for nodesource
+  apt_key:  
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+
+- name: Add Nodejs repository
+  apt_repository:
+    repo: 'deb https://deb.nodesource.com/node_0.10 {{ ansible_distribution_release }} main'
+    state: present
+
+- name: Install Nodejs
+  apt:
+    name: nodejs
+    state: latest

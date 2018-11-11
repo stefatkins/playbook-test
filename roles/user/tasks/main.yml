@@ -36,7 +36,7 @@
   with_items:
     - releases
     - shared/uploads
-    - shared/log/nginx
+    # - shared/log/nginx
     - shared/assets
     - shared/sockets
     - shared/pids
