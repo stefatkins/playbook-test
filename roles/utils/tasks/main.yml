@@ -20,4 +20,6 @@
       python-pyasn1,
       python-pip
     ]
-  when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'trusty'
+
+- name: Install apt_key dependencies
+  command: pip install ndg-httpsclient
