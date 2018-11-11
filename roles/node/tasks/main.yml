@@ -1,20 +1,25 @@
----
-- name: Install node and NPM
-  apt:
-    name: [
-      'nodejs',
-      'npm'
-    ]
-      
-- name: Configure the Yarn APT key
+- name: Import the NodeSource GPG key into apt
   apt_key:
-    url: https://dl.yarnpkg.com/debian/pubkey.gpg
-
-- name: Add Yarn repository
-  apt_repository:
-    repo: 'deb https://dl.yarnpkg.com/debian/ stable main'
+    url: https://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x1655A0AB68576280
+    id: "68576280"
     state: present
 
-- name: Install Yarn
-  apt:
-    name: yarn
+- name: Add Nodejs repository
+  apt_repository:
+    repo: 'deb https://deb.nodesource.com/node_0.10 {{ ansible_distribution_release }} main'
+    state: present
+
+- name: Install nodejs
+  apt: 
+    name: nodejs
+    state: present
+
+# - name: Add Yarn repository
+#   apt_key:
+#     url: https://dl.yarnpkg.com/debian/pubkey.gpg
+#     state: present
+
+# - name: Install Yarn
+#   apt:
+#     name: yarn
+#     state: present
