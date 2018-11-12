@@ -3,6 +3,7 @@
   hosts: web
   become: yes
   vars:
+    dist: bionic
     project_path: /home/deploy/www/{{ inventory_hostname }}
     env_vars:
       - key: "{{ secret_key_base_name }}"
@@ -20,13 +21,13 @@
     - postfix
     - imagemagick
     - nodejs
-    # - yarn
+    - yarn
     - { role: rvm.ruby, tags: ruby, rvm1_rubies: ['{{ ruby_version }}'], rvm1_user: 'deploy' }
     - nginx
 
   post_tasks:
     - name: Create gemset for {{ gemset }}
-      command: bash -lc "rvm gemset create {{ gemset_name }}"
+      command: bash -lc "rvm gemset create {{ gemset_name }}"
       become: yes
       become_user: deploy
 

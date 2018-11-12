@@ -1,13 +1,12 @@
 ---
 - name: Install PostgreSQL
   apt:
-    name: [
-    'postgresql',
-    'postgresql-contrib',
-    'libpq-dev',
-    'python-psycopg2'
-    ]
-
+    name: "{{ item }}"
+  loop:
+    - postgresql
+    - postgresql-contrib
+    - libpq-dev
+    - python3-psycopg2
 
 - name: Ensure the PostgreSQL service is running
   service:

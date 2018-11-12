@@ -11,15 +11,3 @@
       'libsqlite3-dev',
       'curl'
     ]
-
-- name: Install apt_key dependencies
-  apt:
-    name: [
-      python-urllib3,
-      python-openssl,
-      python-pyasn1,
-      python-pip
-    ]
-
-- name: Install apt_key dependencies
-  command: pip install ndg-httpsclient
