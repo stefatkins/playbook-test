@@ -33,6 +33,7 @@
     state: directory
   become: yes
   become_user: deploy
+  ignore_errors: yes
   with_items:
     - releases
     - shared/uploads
