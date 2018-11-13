@@ -20,10 +20,12 @@
     groups: 'deploy,sudo'
     append: yes
 
-- name: Add ssh key
+- name: Add ssh keys
   authorized_key:
     user: deploy
-    key: "{{ lookup('file','~/.ssh/id_rsa.pub') }}"
+    key: "{{ item }}"
+    state: present
+  with_items: "{{ ssh_keys }}"
 
 - name: Create project folders
   file:
