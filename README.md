@@ -1,6 +1,8 @@
 # playbook-test
 Ansible Playbook
 
+Hosts: 
+```yml
 [mywebsite]
 IP
 
@@ -15,4 +17,4 @@ secret_key_base_name=***
 [all:vars]
 ansible_user = root
 ansible_python_interpreter=/usr/bin/python3
-
+```
