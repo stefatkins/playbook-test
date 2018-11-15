@@ -4,7 +4,7 @@ Ansible Playbook
 Hosts: 
 ```yml
 [mywebsite]
-IP
+inventory_name ansible_host=IP
 
 [mywebsite:vars]
 db_user=postgres 
