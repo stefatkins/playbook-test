@@ -30,7 +30,7 @@
 - name: Create project folders
   file:
     path: "{{ project_path }}/{{ item }}"
-    mode: 0755
+    mode: 0775
     recurse: yes
     state: directory
   become: yes

@@ -3,8 +3,6 @@
   apt:
     name: nginx
     state: latest
-  notify:
-    - start nginx
 
 - name: Setup nginx conf
   template:
@@ -19,7 +17,7 @@
 
 - name: Disable default config
   file: 
-    path: /etc/nginx/sites-enabled/default 
+    path: /etc/nginx/sites-available/default 
     state: absent
   notify:
-    - restart nginx
+    - start nginx
