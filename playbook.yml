@@ -4,7 +4,7 @@
   become: yes
   vars:
     dist: bionic
-    project_path: /home/deploy/www/{{ inventory_hostname }}
+    project_path: home/deploy/www/{{ inventory_hostname }}
     env_vars:
       - key: "{{ secret_key_base_name }}"
         value : ce7aa3b7bce10b13e060653fa3b4fbc98a4a1558e31a3a674ad20256d5bdc7cab4583224b945228fbf5292f66b4cd049da1ea5daa526cb3338dace2762442c9e
