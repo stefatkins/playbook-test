@@ -16,8 +16,10 @@
     state: link
 
 - name: Disable default config
-  file: 
-    path: /etc/nginx/sites-available/default 
+  file:
+    path: /etc/nginx/sites-enabled/default
     state: absent
-  notify:
-    - start nginx
+
+- name: restart nginx
+  service:
+    name: nginx state: restarted
